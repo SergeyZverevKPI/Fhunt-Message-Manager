@@ -1,8 +1,7 @@
-print('Hello, world')
 import telebot
 import config
 bot = telebot.TeleBot(config.token)
-admin_id = 397330072
+admin_id = 667110318
 @bot.message_handler(content_types = ['text'])
 def echo(message):
     if message.text == '/start':
@@ -14,5 +13,5 @@ def echo(message):
         bot.send_message(message.chat.id,'Нажмите кнопку',reply_markup = keyboard)
     else:
         bot.send_message(admin_id,message.json['text'])
-
-bot.polling(none_stop = True)
+if __name__ == '__main__':
+    bot.polling(none_stop = True)
